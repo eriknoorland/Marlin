@@ -75,7 +75,7 @@
 // startup. Implementation of an idea by Prof Braino to inform user that any changes made to this
 // build by the user have been successfully uploaded into firmware.
 #define STRING_CONFIG_H_AUTHOR "(thisiskeithb, Ender-3)" // Who made the changes.
-#define SHOW_BOOTSCREEN
+// #define SHOW_BOOTSCREEN
 #define STRING_SPLASH_LINE1 SHORT_BUILD_VERSION // will be shown during bootup in line 1
 #define STRING_SPLASH_LINE2 WEBSITE_URL         // will be shown during bootup in line 2
 
@@ -372,9 +372,14 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
   // Creality Ender-3
-  #define DEFAULT_Kp 21.73
-  #define DEFAULT_Ki 1.54
-  #define DEFAULT_Kd 76.55
+  // #define DEFAULT_Kp 21.73
+  // #define DEFAULT_Ki 1.54
+  // #define DEFAULT_Kd 76.55
+
+  // Micro Swiss All Metal Hotend
+  #define DEFAULT_Kp 32.66
+  #define DEFAULT_Ki 3.47
+  #define DEFAULT_Kd 76.92
 
   // Ultimaker
   //#define DEFAULT_Kp 22.2
@@ -605,7 +610,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2[, E3[, E4]]]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 93 }
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 400, 153.76 }
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -771,8 +776,8 @@
  *      O-- FRONT --+
  *    (0,0)
  */
-#define X_PROBE_OFFSET_FROM_EXTRUDER -45  // X offset: -left  +right  [of the nozzle]
-#define Y_PROBE_OFFSET_FROM_EXTRUDER -15  // Y offset: -front +behind [the nozzle]
+#define X_PROBE_OFFSET_FROM_EXTRUDER -42  // X offset: -left  +right  [of the nozzle]
+#define Y_PROBE_OFFSET_FROM_EXTRUDER -10  // Y offset: -front +behind [the nozzle]
 #define Z_PROBE_OFFSET_FROM_EXTRUDER 0   // Z offset: -below +above  [the nozzle]
 
 // Certain types of probes need to stay away from edges
@@ -878,8 +883,8 @@
 #define Y_BED_SIZE 235
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
-#define X_MIN_POS 0
-#define Y_MIN_POS 0
+#define X_MIN_POS -5
+#define Y_MIN_POS -10
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
@@ -1015,7 +1020,7 @@
 #if ENABLED(AUTO_BED_LEVELING_LINEAR) || ENABLED(AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 3
+  #define GRID_MAX_POINTS_X 4
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Set the boundaries for probing (where the probe can reach).
@@ -1220,8 +1225,8 @@
 // M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
 //
 #define EEPROM_SETTINGS // Enable for M500 and M501 commands
-#define DISABLE_M503    // Saves ~2700 bytes of PROGMEM. Disable for release!
-//#define EEPROM_CHITCHAT   // Give feedback on EEPROM commands. Disable to save PROGMEM.
+// #define DISABLE_M503    // Saves ~2700 bytes of PROGMEM. Disable for release!
+#define EEPROM_CHITCHAT   // Give feedback on EEPROM commands. Disable to save PROGMEM.
 
 //
 // Host Keepalive
@@ -1422,7 +1427,7 @@
  * you must uncomment the following option or it won't work.
  *
  */
-#define SDSUPPORT
+// #define SDSUPPORT
 
 /**
  * SD CARD: SPI SPEED
